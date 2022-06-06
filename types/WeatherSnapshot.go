@@ -5,7 +5,6 @@ package types
 type WeatherSnapshot struct {
 	Fog         bool    `json:"fog"`         // if data explicitly indicates that there will be fog
 	Time        int64   `json:"time"`        // epoch, start of the Duration
-	Duration    int     `json:"duration"`    // minutes
 	Temperature float64 `json:"temperature"` // celsius
 	WindSpeed   float64 `json:"windSpeed"`   // kph
 	Gusts       float64 `json:"gusts"`       // kph

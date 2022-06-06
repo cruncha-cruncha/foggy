@@ -21,8 +21,6 @@ func (api WeatherApi) GetName() string {
 func (api WeatherApi) GetTomorrowMorningData() types.ProviderDataResponse {
 	url := getUrl()
 
-	fmt.Println(url)
-
 	resp, err := http.Get(url)
 	if err != nil {
 		return types.ProviderDataResponse{
@@ -96,12 +94,12 @@ func parseSunriseTomorrow(tomorrow map[string]any) time.Time {
 }
 
 func parseSnaps(tomorrow map[string]any) []types.WeatherSnapshot {
-	lower := 0
-	upper := 12
+	lower := constants.StartHour
+	upper := constants.EndHour
 
-	snaps := make([]types.WeatherSnapshot, upper - lower + 1)
+	snaps := make([]types.WeatherSnapshot, upper - lower)
 
-	for i := lower; i <= upper; i += 1 {
+	for i := lower; i < upper; i += 1 {
 		hour := helpers.GetVal(tomorrow, []string{"hour", fmt.Sprint(i)}, make(map[string]any))
 		snaps[i] = makeSnapshot(hour)
 	}
@@ -111,8 +109,6 @@ func parseSnaps(tomorrow map[string]any) []types.WeatherSnapshot {
 
 func makeSnapshot(hour map[string]any) types.WeatherSnapshot {
 	time := int64(helpers.GetVal(hour, []string{"time_epoch"}, 0.0))
-
-	duration := 60
 
 	// https://www.weatherapi.com/docs/weather_conditions.json
 	conditions := strings.ToLower(helpers.GetVal(hour, []string{"condition", "text"}, "<unknown>"))
@@ -139,7 +135,6 @@ func makeSnapshot(hour map[string]any) types.WeatherSnapshot {
 	return types.WeatherSnapshot{
 		Fog: fog,
 		Time: time,
-		Duration: duration,
 		Temperature: temperature,
 		WindSpeed: windSpeed,
 		Gusts: gusts,
