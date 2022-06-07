@@ -1,0 +1,14 @@
+{
+    "$id": "schemas/Snapshot.json",
+    "type": "object",
+    "properties": {
+      "time": {"type": "integer"},
+      "fog": {"type": "boolean"},
+      "temperature": {"type": "number"},
+      "dewPoint": {"type": "number"},
+      "windSpeed": {"type": "number"},
+      "gusts": {"type": "number"},
+      "visibility": {"type": "number"}
+    },
+    "required": ["time", "fog", "temperature", "dewPoint", "windSpeed", "gusts", "visibility"]
+  }

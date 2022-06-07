@@ -1,8 +1,20 @@
-import * as React from "react"
+import * as React from "react";
+import Ajv from "ajv";
 import input from '../../content/weather.json';
+import snapshotSchema from '../../schemas/Snapshot.json';
+import providerSchema from '../../schemas/WeatherProvider.json';
+import inputSchema from '../../schemas/Input.json';
 import { WeatherProvider } from "../components/WeatherProvider";
 
 const Testing = () => {
+
+    const ajv = new Ajv()
+
+    ajv.addSchema(snapshotSchema);
+    ajv.addSchema(providerSchema);
+    const validate = ajv.compile(inputSchema);
+
+    console.log("VALID", validate(input), validate.errors);
 
     // TODO: use Dayjs
 

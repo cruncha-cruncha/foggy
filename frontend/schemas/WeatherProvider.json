@@ -1,0 +1,13 @@
+{
+    "$id": "schemas/WeatherProvider.json",
+    "type": "object",
+    "properties": {
+      "name": {"type": "string"},
+      "sunrise": {"type": "string"},
+      "snaps": {
+        "type": "array",
+        "items": {"$ref": "Snapshot.json"}
+      }
+    },
+    "required": ["name", "sunrise", "snaps"]
+  }
