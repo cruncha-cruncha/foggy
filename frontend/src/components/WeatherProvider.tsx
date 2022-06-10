@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import * as React from "react"
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryErrorBar, VictoryLine } from 'victory';
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryErrorBar, VictoryLabel, VictoryLine } from 'victory';
 import { snapshotToGraphical } from "../logic/snapshotToGraphical";
 import { validateSnapTiming } from "../logic/validateSnapTiming";
 import { Graphical } from "../types/Graphical";
@@ -9,6 +9,7 @@ import { WeatherProvider as WeatherType } from '../types/WeatherProvider';
 
 const oneHour = 60 * 60;
 const halfHour = 60 * 30;
+const PADDING = { top: 0, right: 30, bottom: 10, left: 20 }
 
 type Props = Pick<InputType, 'tomorrow'> & {
     data: WeatherType,
@@ -21,15 +22,45 @@ export const WeatherProvider = ({ data, tomorrow }: Props) => {
 
     return (
         <div>
-            <p>{data.name}</p>
-            <p>Sunrise: {data.sunrise}</p>
+            <p>Source: {data.name}</p>
+            <p>Sunrise: {dayjs(data.sunrise).format("HH:mm")}</p>
             <div className="data">
+                <TimeAxis graphData={graphData} />
                 <FogChart graphData={graphData} />
                 <TemperatureChart graphData={graphData} />
                 <WindChart graphData={graphData} />
                 <VisibilityChart graphData={graphData} />
             </div>
         </div>
+    )
+}
+
+const TimeAxis = ({
+    graphData
+}: {
+    graphData: Graphical[]
+}) => {
+    const { maxTime, minTime } = getXDomain(graphData);
+
+    return (
+        <VictoryChart
+            maxDomain={{ x: maxTime }}
+            minDomain={{ x: minTime }}
+            height={30}
+            padding={{ top: 30, right: PADDING.right, bottom: 0, left: PADDING.left }}
+        >
+            <VictoryAxis
+                tickValues={graphData.map(gd => gd.time)}
+                tickCount={3}
+                orientation="top"
+                tickFormat={(t) => `${dayjs.unix(t).format("HH")}`}
+                style={{
+                    axis: { stroke: "#756f6a" },
+                    ticks: { stroke: "grey", size: 5 },
+                    tickLabels: { fontSize: 18, padding: 0 }
+                }}
+            />
+        </VictoryChart>
     )
 }
 
@@ -44,14 +75,15 @@ const FogChart = ({
         <VictoryChart
             maxDomain={{ x: maxTime }}
             minDomain={{ x: minTime }}
-            padding={{ top: 10, right: 0, bottom: 30, left: 30 }}
+            height={30}
+            padding={{ top: 0, right: PADDING.right, bottom: 30, left: PADDING.left }}
         >
             <VictoryAxis
                 tickValues={graphData.map(gd => gd.time + halfHour)}
                 tickFormat={(t, i) => graphData[i].fog ? "1" : "0"}
                 style={{
-                    //axis: { stroke: "#756f6a" },
-                    //grid: { stroke: ({ tick }) => tick === 3 ? "grey" : "" },
+                    axis: { stroke: "" },
+                    tickLabels: { fontSize: 18, padding: 5 }
                 }}
             />
         </VictoryChart>
@@ -79,22 +111,24 @@ const TemperatureChart = ({
         <VictoryChart
             maxDomain={{ x: maxTime, y: 5 }}
             minDomain={{ x: minTime, y: 0 }}
-            padding={{ top: 10, right: 0, bottom: 30, left: 30 }}
+            height={180}
+            padding={PADDING}
         >
             <VictoryAxis dependentAxis
                 tickValues={[0, 3]}
+                orientation="right"
                 style={{
                     axis: { stroke: "#756f6a" },
                     grid: { stroke: ({ tick }) => tick === 3 ? "grey" : "" },
+                    tickLabels: { fontSize: 18, padding: 4 }
                 }}
             />
-            <VictoryAxis
-                tickValues={graphData.map(gd => gd.time)}
-                tickCount={3}
-                tickFormat={(t) => `${dayjs.unix(t).format("HH")}`}
+            <VictoryAxis dependentAxis
+                label="Temp - Dew point (C)"
                 style={{
                     axis: { stroke: "#756f6a" },
-                    ticks: { stroke: "grey", size: 5 },
+                    tickLabels: { fontSize: 0 },
+                    axisLabel: { padding: 5 }
                 }}
             />
             <VictoryBar
@@ -135,7 +169,7 @@ const WindChart = ({
         {
             ...graphData[0],
             time: graphData[0].time - halfHour
-         },
+        },
         ...graphData,
         {
             ...graphData[graphData.length - 1],
@@ -147,13 +181,24 @@ const WindChart = ({
         <VictoryChart
             maxDomain={{ x: maxTime, y: 15 }}
             minDomain={{ x: minTime, y: 0 }}
-            padding={{ top: 10, right: 0, bottom: 10, left: 30 }}
+            height={180}
+            padding={PADDING}
         >
             <VictoryAxis dependentAxis
+                orientation="right"
                 tickValues={[0, 5, 10]}
                 style={{
                     axis: { stroke: "#756f6a" },
                     grid: { stroke: ({ tick }) => [5, 10].includes(tick) ? "grey" : "" },
+                    tickLabels: { fontSize: 18, padding: 4 }
+                }}
+            />
+            <VictoryAxis dependentAxis
+                label='Wind Speed (kt)'
+                style={{
+                    axis: { stroke: "#756f6a" },
+                    tickLabels: { fontSize: 0 },
+                    axisLabel: { padding: 5 }
                 }}
             />
             <VictoryLine
@@ -199,13 +244,24 @@ const VisibilityChart = ({
         <VictoryChart
             maxDomain={{ x: maxTime, y: 5 }}
             minDomain={{ x: minTime, y: 0 }}
-            padding={{ top: 10, right: 0, bottom: 10, left: 30 }}
+            height={180}
+            padding={PADDING}
         >
             <VictoryAxis dependentAxis
+                orientation="right"
                 tickValues={[0, 1, 2]}
                 style={{
                     axis: { stroke: "#756f6a" },
                     grid: { stroke: ({ tick }) => [1, 2].includes(tick) ? "grey" : "" },
+                    tickLabels: { fontSize: 18, padding: 4 }
+                }}
+            />
+            <VictoryAxis dependentAxis
+                label="Visibility (km)"
+                style={{
+                    axis: { stroke: "#756f6a" },
+                    tickLabels: { fontSize: 0 },
+                    axisLabel: { padding: 5 }
                 }}
             />
             <VictoryBar
