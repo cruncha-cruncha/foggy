@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# This file is meant to be run from a docker container
+
 # echo on
 set -x
 
@@ -36,6 +38,6 @@ if [ $WANT_NODE_VERSION != $HAVE_NODE_VERSION ]; then
     exit 1
 fi
 
-npm run pre-deploy
+npm run build
 # --- end Node section ---
 

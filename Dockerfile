@@ -29,16 +29,18 @@ COPY ./frontend/gatsby-config.ts    ./frontend/
 COPY ./frontend/package.json        ./frontend/
 COPY ./frontend/tsconfig.json       ./frontend/
 
-# copy script
+# copy scripts
 COPY ./refresh.sh ./
+COPY ./deploy.sh  ./
 
 # engage
 RUN cd ./frontend && npm i
 RUN chmod +x ./refresh.sh
-ENTRYPOINT ["./refresh.sh"]
+RUN chmod +x ./deploy.sh
+ENTRYPOINT ["./refresh.sh && ./deploy.sh"]
 
 # docker build -t foggy/foggy .
-# docker run foggy/foggy
+# docker run --env-file ./frontend/.env foggy/foggy 
 
 # jessie/stretch/buster/bullseye = debian versions (oldest/old/newer/newest)
 # slim = slim

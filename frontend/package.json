@@ -12,11 +12,10 @@
     "dev": "gatsby develop",
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "pre-deploy": "gatsby build --prefix-paths",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "deploy": "gh-pages -d public",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
