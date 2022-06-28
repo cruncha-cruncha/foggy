@@ -4,6 +4,8 @@ FROM golang:1.18-bullseye AS golang
   
 FROM node:16.15-bullseye
 
+#TODO need to slim this down, 2 GB is a lot
+
 # idk
 WORKDIR /app 
 

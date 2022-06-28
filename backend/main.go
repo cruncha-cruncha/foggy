@@ -11,8 +11,6 @@ import (
 
 const FILE_PATH = "output.json"
 
-const CITY = "Ottawa"
-
 func main() {
 	providerList := []types.WeatherProvider{
 		new(providers.WeatherApi),
