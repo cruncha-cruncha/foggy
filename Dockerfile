@@ -44,7 +44,6 @@ RUN chmod +x ./refresh.sh
 RUN chmod +x ./deploy.sh
 RUN chmod +x ./ENGAGE.sh
 
-#ENTRYPOINT ["./refresh.sh && ./deploy.sh"]
 ENTRYPOINT ["./ENGAGE.sh"]
 
 # docker build -t foggy/foggy .
