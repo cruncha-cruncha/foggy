@@ -49,9 +49,8 @@ RUN chmod +x ./refresh.sh
 RUN chmod +x ./deploy.sh
 RUN chmod +x ./ENGAGE.sh
 
-# other stuff
-RUN apt-get update -y
-RUN apt-get install -y git
+# get git
+RUN apt-get update -y && apt-get install -y git
 
 ENTRYPOINT ["./ENGAGE.sh"]
 
