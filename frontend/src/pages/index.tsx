@@ -23,7 +23,7 @@ const Testing = () => {
                     <Col xs md="8" lg="6">
                         <div className="pre-amble">
                             <h1>{inputData.city} Weather</h1>
-                            <p>{formatTomorrow(inputData.tomorrow)}</p>
+                            <p>Tomorrow: {formatTomorrow(inputData.tomorrow)}</p>
                         </div>
                     </Col>
                 </Row>
