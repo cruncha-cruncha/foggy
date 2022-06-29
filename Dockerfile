@@ -1,17 +1,21 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:1.18-bullseye AS golang
-  
-FROM node:16.15-bullseye
 
-#TODO need to slim this down, 2 GB is a lot
-
-# idk
-WORKDIR /app 
+FROM node:16.15-bullseye AS big-node
 
 # npm install
 COPY ./frontend/package.json        ./frontend/
 RUN cd ./frontend && npm i
+
+FROM golang:1.18-bullseye AS golang
+
+FROM node:16.15-bullseye-slim
+
+# idk
+WORKDIR /app 
+
+# copy npm i from big-node
+COPY --from=big-node ./frontend/node_modules/ ./frontend/node_modules/
 
 # install Golang lol
 COPY --from=golang /usr/local/go/ /usr/local/go/
@@ -33,6 +37,7 @@ COPY ./frontend/content/            ./frontend/content/
 COPY ./frontend/.nvmrc              ./frontend/
 COPY ./frontend/gatsby-config.ts    ./frontend/
 COPY ./frontend/tsconfig.json       ./frontend/
+COPY ./frontend/package.json        ./frontend/
 
 # copy scripts
 COPY ./refresh.sh ./
@@ -44,12 +49,11 @@ RUN chmod +x ./refresh.sh
 RUN chmod +x ./deploy.sh
 RUN chmod +x ./ENGAGE.sh
 
+# other stuff
+RUN apt-get update -y
+RUN apt-get install -y git
+
 ENTRYPOINT ["./ENGAGE.sh"]
 
 # docker build -t foggy/foggy .
 # docker run --env-file="./frontend/.env" foggy/foggy 
-
-# jessie/stretch/buster/bullseye = debian versions (oldest/old/newer/newest)
-# slim = slim
-# alpine = based on alpine linux which is a slim version of linux
-# windowsservercore = can run windows
