@@ -1,5 +1,5 @@
 #!/bin/sh
 
-./refresh.sh
+docker rm foggy 
 
-./deploy.sh
+./refresh.sh && ./deploy.sh

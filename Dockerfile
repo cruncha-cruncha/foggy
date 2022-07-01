@@ -21,6 +21,9 @@ COPY --from=big-node ./frontend/node_modules/ ./frontend/node_modules/
 COPY --from=golang /usr/local/go/ /usr/local/go/
 ENV PATH="/usr/local/go/bin:${PATH}"
 
+# get git
+RUN apt-get update -y && apt-get install -y git
+
 # copy go stuff
 COPY ./backend/constants/       ./backend/constants/
 COPY ./backend/helpers/         ./backend/helpers/
@@ -43,16 +46,14 @@ COPY ./frontend/package.json        ./frontend/
 COPY ./refresh.sh ./
 COPY ./deploy.sh  ./
 COPY ./ENGAGE.sh  ./
+COPY ./.env       ./
 
 # engage
 RUN chmod +x ./refresh.sh
 RUN chmod +x ./deploy.sh
 RUN chmod +x ./ENGAGE.sh
 
-# get git
-RUN apt-get update -y && apt-get install -y git
-
 ENTRYPOINT ["./ENGAGE.sh"]
 
 # docker build -t foggy/foggy .
-# docker run --env-file="./frontend/.env" foggy/foggy 
+# docker run --name="foggy" --env-file="./.env" foggy/foggy 

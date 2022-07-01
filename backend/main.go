@@ -2,10 +2,10 @@ package main
 
 import (
 	"encoding/json"
-	"foggy/constants"
 	"foggy/providers"
 	"foggy/types"
 	"io/ioutil"
+	"os"
 	"time"
 )
 
@@ -27,7 +27,7 @@ func main() {
 func writeToFile(data []types.ProviderDataResponse) error {
 	output := types.Output{
 		Tomorrow:  getTomorrow(),
-		City: constants.City,
+		City: os.Getenv("CITY"),
 		Data: data,
 	}
 

@@ -5,6 +5,11 @@
 # echo on
 set -x
 
+# need a timezone
+if [ -z $TZ ]; then
+    exit 1
+fi
+
 # --- Golang section ---
 cd ./backend
 
@@ -15,6 +20,14 @@ fi
 WANT_GO_VERSION=$(cat go.mod | awk '/go/ {print $2}' | cut -d '.' -f 1,2)
 HAVE_GO_VERSION=$(go version | grep -oE "[0-9]+\.[0-9]+")
 if [ $WANT_GO_VERSION != $HAVE_GO_VERSION ]; then 
+    exit 1
+fi
+
+if [ -z $CITY ]; then
+    exit 1
+elif [ -z $WEATHER_API_LOCATION ]; then
+    exit 1
+elif [ -z $WEATHER_API_KEY ]; then
     exit 1
 fi
 

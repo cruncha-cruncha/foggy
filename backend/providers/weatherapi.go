@@ -2,6 +2,7 @@ package providers
 
 import (
 	"fmt"
+	"os"
 	"net/http"
 	"strings"
 	"time"
@@ -50,9 +51,9 @@ func (api WeatherApi) GetTomorrowMorningData() types.ProviderDataResponse {
 func getUrl() string {
 	return "" +
 		"https://api.weatherapi.com/v1/forecast.json?key=" +
-		constants.WeatherApi_Key + 
+		os.Getenv("WEATHER_API_KEY") + 
 		"&q=" + 
-		constants.City + 
+		os.Getenv("WEATHER_API_LOCATION") + 
 		"&days=2&aqi=no&alerts=no"
 }
 
