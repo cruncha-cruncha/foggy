@@ -9,10 +9,6 @@ set -x
 cd ./frontend
 
 # --- git section ---
-if ! git version; then
-    exit 1
-fi
-
 if [ -z $GIT_NAME ]; then
     exit 1
 elif [ -z $GIT_EMAIL ]; then
@@ -31,10 +27,6 @@ git pull origin gh-pages
 # --- end git section ---
 
 # --- Node section ---
-if ! node --version; then
-    exit 1
-fi
-
 WANT_NODE_VERSION=$(cat .nvmrc | cut -d '.' -f 1,2)
 HAVE_NODE_VERSION=$(node --version | grep -oE "v[0-9]+\.[0-9]+")
 if [ $WANT_NODE_VERSION != $HAVE_NODE_VERSION ]; then 

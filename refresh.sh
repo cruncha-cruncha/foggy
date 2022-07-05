@@ -5,23 +5,8 @@
 # echo on
 set -x
 
-# need a timezone
-if [ -z $TZ ]; then
-    exit 1
-fi
-
-# --- Golang section ---
+# --- backend section ---
 cd ./backend
-
-if ! go version; then
-    exit 1
-fi
-
-WANT_GO_VERSION=$(cat go.mod | awk '/go/ {print $2}' | cut -d '.' -f 1,2)
-HAVE_GO_VERSION=$(go version | grep -oE "[0-9]+\.[0-9]+")
-if [ $WANT_GO_VERSION != $HAVE_GO_VERSION ]; then 
-    exit 1
-fi
 
 if [ -z $CITY ]; then
     exit 1
@@ -31,19 +16,15 @@ elif [ -z $WEATHER_API_KEY ]; then
     exit 1
 fi
 
-go run main.go
-# --- end Golang section ---
+./main
+# --- end backend section ---
 
 cd ..
 
 cp ./backend/output.json ./frontend/content/weather.json
 
-# --- Node section ---
+# --- frontend section ---
 cd ./frontend
-
-if ! node --version; then
-    exit 1
-fi
 
 WANT_NODE_VERSION=$(cat .nvmrc | cut -d '.' -f 1,2)
 HAVE_NODE_VERSION=$(node --version | grep -oE "v[0-9]+\.[0-9]+")
@@ -52,5 +33,5 @@ if [ $WANT_NODE_VERSION != $HAVE_NODE_VERSION ]; then
 fi
 
 npm run build
-# --- end Node section ---
+# --- end frontend section ---
 
