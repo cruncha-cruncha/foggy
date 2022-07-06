@@ -1,14 +1,5 @@
 # syntax=docker/dockerfile:1
 
-# ----- NODE BUILDER -----
-FROM node:16.15-bullseye AS big-node
-
-WORKDIR /node-app 
-
-COPY ./frontend/package.json ./frontend/
-RUN cd ./frontend && npm i
-# ----- NODE BUILDER -----
-
 # ----- GOLANG BUILDER -----
 FROM golang:1.18-bullseye AS golang
 
@@ -28,9 +19,6 @@ FROM node:16.15-bullseye-slim
 
 WORKDIR /app
 
-# copy npm i from big-node
-COPY --from=big-node ./node-app/frontend/node_modules/ ./frontend/node_modules/
-
 # copy backend executable from golang
 COPY --from=golang ./golang-app/backend/main ./backend/
 RUN chmod +x ./backend/main
@@ -38,27 +26,11 @@ RUN chmod +x ./backend/main
 # get git
 RUN apt-get update -y && apt-get install -y git
 
-# copy gatsby stuff
-COPY ./frontend/schemas/            ./frontend/schemas/
-COPY ./frontend/src/                ./frontend/src/
-COPY ./frontend/schemas/            ./frontend/schemas/
-COPY ./frontend/content/            ./frontend/content/
-COPY ./frontend/.nvmrc              ./frontend/
-COPY ./frontend/gatsby-config.ts    ./frontend/
-COPY ./frontend/tsconfig.json       ./frontend/
-COPY ./frontend/package.json        ./frontend/
-
 # copy scripts
-COPY ./pull.sh      ./
-COPY ./refresh.sh   ./
-COPY ./push.sh      ./
 COPY ./ENGAGE.sh    ./
 COPY ./.env         ./
 
 # engage
-RUN chmod +x ./pull.sh
-RUN chmod +x ./refresh.sh
-RUN chmod +x ./push.sh
 RUN chmod +x ./ENGAGE.sh
 
 ENTRYPOINT ["./ENGAGE.sh"]
