@@ -1,3 +1,4 @@
 #!/bin/sh
 
-./refresh.sh && ./deploy.sh
+./pull.sh 
+# ./pull.sh && ./refresh.sh && ./push.sh

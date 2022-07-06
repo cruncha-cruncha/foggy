@@ -49,17 +49,23 @@ COPY ./frontend/tsconfig.json       ./frontend/
 COPY ./frontend/package.json        ./frontend/
 
 # copy scripts
-COPY ./refresh.sh ./
-COPY ./deploy.sh  ./
-COPY ./ENGAGE.sh  ./
-COPY ./.env       ./
+COPY ./pull.sh      ./
+COPY ./refresh.sh   ./
+COPY ./push.sh      ./
+COPY ./ENGAGE.sh    ./
+COPY ./.env         ./
 
 # engage
+RUN chmod +x ./pull.sh
 RUN chmod +x ./refresh.sh
-RUN chmod +x ./deploy.sh
+RUN chmod +x ./push.sh
 RUN chmod +x ./ENGAGE.sh
 
 ENTRYPOINT ["./ENGAGE.sh"]
+
+# docker build -t foggy/foggy .
+# docker run --name foggy --env-file=".env" foggy/foggy 
+
 
 # docker build --platform linux/arm/v7 -t username/repo .
 # docker run --name foggy --env-file=".env" username/repo 
