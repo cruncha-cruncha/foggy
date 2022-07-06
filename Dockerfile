@@ -35,9 +35,5 @@ RUN chmod +x ./ENGAGE.sh
 
 ENTRYPOINT ["./ENGAGE.sh"]
 
-# docker build -t foggy/foggy .
-# docker run --name foggy --env-file=".env" foggy/foggy 
-
-
 # docker build --platform linux/arm/v7 -t username/repo .
 # docker run --name foggy --env-file=".env" username/repo 
