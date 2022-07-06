@@ -22,6 +22,7 @@ git remote add origin $GIT_ORIGIN_URL
 git config pull.rebase false
 git fetch origin netlify
 git reset --hard origin/netlify
+git checkout netlify
 # --- end git pull section ---
 
 # --- backend section ---
@@ -33,14 +34,13 @@ elif [ -z $WEATHER_API_KEY ]; then
     exit 1
 fi
 
-./backend./main
+./backend/main
 # --- end backend section ---
 
 cp ./backend/output.json ./frontend/content/weather.json
 
 # --- git push section ---
 git add ./frontend/content/weather.json
-git status
-# git commit -m "Update"
-# git push
+git commit -m "Update"
+git push
 # --- end git push section ---
