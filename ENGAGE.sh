@@ -34,7 +34,9 @@ elif [ -z $WEATHER_API_KEY ]; then
     exit 1
 fi
 
-./backend/main
+cd ./backend
+./main
+cd ..
 # --- end backend section ---
 
 cp ./backend/output.json ./frontend/content/weather.json

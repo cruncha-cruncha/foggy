@@ -6,3 +6,5 @@ I like to sleep in, but also like taking pictures in the fog. This repo:
 
 Cron runs the docker container everyday at noon, and I can check tomorrow morning's chance of fog.
 
+To run backend only:
+`(set -a && source .env && go run ./backend/main.go)`

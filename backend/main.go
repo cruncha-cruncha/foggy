@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"encoding/json"
 	"foggy/providers"
 	"foggy/types"
@@ -21,7 +22,11 @@ func main() {
 		data[i] = providerList[i].GetTomorrowMorningData()
 	}
 
-	writeToFile(data)
+	err := writeToFile(data)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
 }
 
 func writeToFile(data []types.ProviderDataResponse) error {
