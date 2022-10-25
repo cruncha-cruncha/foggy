@@ -1,5 +1,5 @@
 {
-  "tomorrow": "2022-10-25T12:05:05.197578425-04:00",
+  "tomorrow": "2022-10-26T12:05:05.557559265-04:00",
   "city": "Ottawa",
   "data": [
     {
@@ -7,126 +7,126 @@
       "snaps": [
         {
           "fog": true,
-          "time": 1666670400,
-          "temperature": 11.500000000000002,
-          "windSpeed": 7.9,
-          "gusts": 16.6,
-          "pressure": 1021,
-          "humidity": 96,
-          "dewPoint": 10.777777777777779,
-          "cloudCover": 100,
-          "visibility": 2
-        },
-        {
-          "fog": true,
-          "time": 1666674000,
-          "temperature": 11.38888888888889,
-          "windSpeed": 7.2,
-          "gusts": 15.1,
-          "pressure": 1021,
-          "humidity": 96,
-          "dewPoint": 10.777777777777779,
-          "cloudCover": 100,
-          "visibility": 2
-        },
-        {
-          "fog": true,
-          "time": 1666677600,
-          "temperature": 10.5,
-          "windSpeed": 6.5,
-          "gusts": 13.7,
-          "pressure": 1020,
+          "time": 1666756800,
+          "temperature": 14.38888888888889,
+          "windSpeed": 8.6,
+          "gusts": 17.3,
+          "pressure": 1013,
           "humidity": 97,
-          "dewPoint": 10,
+          "dewPoint": 14.000000000000002,
           "cloudCover": 100,
-          "visibility": 0
+          "visibility": 2
         },
         {
           "fog": true,
-          "time": 1666681200,
-          "temperature": 9.722222222222221,
-          "windSpeed": 7.2,
-          "gusts": 15.1,
-          "pressure": 1020,
+          "time": 1666760400,
+          "temperature": 14.38888888888889,
+          "windSpeed": 9,
+          "gusts": 17.3,
+          "pressure": 1013,
           "humidity": 98,
-          "dewPoint": 9.277777777777779,
+          "dewPoint": 14.000000000000002,
           "cloudCover": 100,
-          "visibility": 0
+          "visibility": 10
+        },
+        {
+          "fog": false,
+          "time": 1666764000,
+          "temperature": 16.22222222222222,
+          "windSpeed": 9.4,
+          "gusts": 18.4,
+          "pressure": 1013,
+          "humidity": 87,
+          "dewPoint": 14.11111111111111,
+          "cloudCover": 76,
+          "visibility": 10
         },
         {
           "fog": true,
-          "time": 1666684800,
-          "temperature": 9.722222222222221,
-          "windSpeed": 6.5,
-          "gusts": 13.7,
-          "pressure": 1020,
-          "humidity": 98,
-          "dewPoint": 9.38888888888889,
-          "cloudCover": 100,
-          "visibility": 0
-        },
-        {
-          "fog": true,
-          "time": 1666688400,
-          "temperature": 10.5,
+          "time": 1666767600,
+          "temperature": 13.38888888888889,
           "windSpeed": 7.6,
           "gusts": 15.8,
-          "pressure": 1020,
-          "humidity": 98,
-          "dewPoint": 10.111111111111112,
+          "pressure": 1012,
+          "humidity": 95,
+          "dewPoint": 12.5,
+          "cloudCover": 11,
+          "visibility": 2
+        },
+        {
+          "fog": true,
+          "time": 1666771200,
+          "temperature": 12.722222222222221,
+          "windSpeed": 7.6,
+          "gusts": 15.8,
+          "pressure": 1012,
+          "humidity": 96,
+          "dewPoint": 12,
+          "cloudCover": 39,
+          "visibility": 2
+        },
+        {
+          "fog": false,
+          "time": 1666774800,
+          "temperature": 14.777777777777779,
+          "windSpeed": 7.6,
+          "gusts": 15.8,
+          "pressure": 1013,
+          "humidity": 91,
+          "dewPoint": 13.277777777777779,
+          "cloudCover": 63,
+          "visibility": 2
+        },
+        {
+          "fog": true,
+          "time": 1666778400,
+          "temperature": 12.388888888888888,
+          "windSpeed": 8.3,
+          "gusts": 17.3,
+          "pressure": 1011,
+          "humidity": 97,
+          "dewPoint": 12,
           "cloudCover": 100,
           "visibility": 0
         },
         {
           "fog": true,
-          "time": 1666692000,
-          "temperature": 10.61111111111111,
+          "time": 1666782000,
+          "temperature": 12.5,
           "windSpeed": 6.8,
-          "gusts": 13.3,
-          "pressure": 1020,
+          "gusts": 14.4,
+          "pressure": 1010,
           "humidity": 97,
-          "dewPoint": 10.111111111111112,
+          "dewPoint": 12.111111111111109,
           "cloudCover": 100,
-          "visibility": 2
+          "visibility": 0
         },
         {
           "fog": true,
-          "time": 1666695600,
-          "temperature": 10.88888888888889,
-          "windSpeed": 6.8,
-          "gusts": 13,
-          "pressure": 1019,
+          "time": 1666785600,
+          "temperature": 14.11111111111111,
+          "windSpeed": 7.6,
+          "gusts": 15.8,
+          "pressure": 1012,
           "humidity": 97,
-          "dewPoint": 10.388888888888891,
-          "cloudCover": 100,
+          "dewPoint": 13.61111111111111,
+          "cloudCover": 66,
           "visibility": 2
         },
         {
-          "fog": true,
-          "time": 1666699200,
-          "temperature": 10.5,
-          "windSpeed": 7.9,
+          "fog": false,
+          "time": 1666789200,
+          "temperature": 14.88888888888889,
+          "windSpeed": 8.3,
           "gusts": 15.1,
-          "pressure": 1020,
-          "humidity": 98,
-          "dewPoint": 10.111111111111112,
+          "pressure": 1010,
+          "humidity": 93,
+          "dewPoint": 13.777777777777777,
           "cloudCover": 100,
-          "visibility": 2
-        },
-        {
-          "fog": true,
-          "time": 1666702800,
-          "temperature": 12.111111111111109,
-          "windSpeed": 8.6,
-          "gusts": 15.1,
-          "pressure": 1019,
-          "humidity": 96,
-          "dewPoint": 11.500000000000002,
-          "cloudCover": 100,
-          "visibility": 2
+          "visibility": 10
         }
       ],
-      "sunrise": "2022-10-25T07:33:00-04:00"
+      "sunrise": "2022-10-26T07:34:00-04:00"
     }
   ]
 }
