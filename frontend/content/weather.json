@@ -1,5 +1,5 @@
 {
-  "tomorrow": "2023-05-20T12:05:05.382721331-04:00",
+  "tomorrow": "2023-05-21T12:05:06.259978454-04:00",
   "city": "Ottawa",
   "data": [
     {
@@ -7,126 +7,126 @@
       "snaps": [
         {
           "fog": false,
-          "time": 1684555200,
-          "temperature": 13.777777777777777,
-          "windSpeed": 17.6,
-          "gusts": 31.3,
-          "pressure": 1015,
-          "humidity": 95,
-          "dewPoint": 13,
-          "cloudCover": 85,
-          "visibility": 10
-        },
-        {
-          "fog": false,
-          "time": 1684558800,
-          "temperature": 13.61111111111111,
-          "windSpeed": 14.4,
-          "gusts": 24.8,
-          "pressure": 1015,
-          "humidity": 97,
-          "dewPoint": 13.11111111111111,
-          "cloudCover": 85,
-          "visibility": 10
-        },
-        {
-          "fog": true,
-          "time": 1684562400,
-          "temperature": 13.38888888888889,
-          "windSpeed": 11.5,
-          "gusts": 20.9,
-          "pressure": 1015,
-          "humidity": 95,
-          "dewPoint": 12.611111111111112,
-          "cloudCover": 67,
-          "visibility": 2
-        },
-        {
-          "fog": true,
-          "time": 1684566000,
-          "temperature": 12.777777777777779,
-          "windSpeed": 10.1,
-          "gusts": 19.4,
-          "pressure": 1015,
-          "humidity": 95,
-          "dewPoint": 12,
-          "cloudCover": 87,
-          "visibility": 2
-        },
-        {
-          "fog": true,
-          "time": 1684569600,
-          "temperature": 12.5,
-          "windSpeed": 8.6,
-          "gusts": 16.6,
-          "pressure": 1015,
-          "humidity": 95,
-          "dewPoint": 11.722222222222221,
-          "cloudCover": 100,
-          "visibility": 2
-        },
-        {
-          "fog": true,
-          "time": 1684573200,
-          "temperature": 12.5,
-          "windSpeed": 10.1,
-          "gusts": 18,
-          "pressure": 1015,
-          "humidity": 95,
-          "dewPoint": 11.722222222222221,
-          "cloudCover": 100,
-          "visibility": 2
-        },
-        {
-          "fog": false,
-          "time": 1684576800,
+          "time": 1684641600,
           "temperature": 12.388888888888888,
-          "windSpeed": 14.4,
-          "gusts": 24.5,
-          "pressure": 1014,
-          "humidity": 95,
-          "dewPoint": 11.61111111111111,
-          "cloudCover": 100,
-          "visibility": 10
-        },
-        {
-          "fog": false,
-          "time": 1684580400,
-          "temperature": 12.222222222222221,
-          "windSpeed": 15.8,
-          "gusts": 25.2,
-          "pressure": 1014,
-          "humidity": 96,
-          "dewPoint": 11.61111111111111,
-          "cloudCover": 100,
-          "visibility": 10
-        },
-        {
-          "fog": false,
-          "time": 1684584000,
-          "temperature": 11.88888888888889,
-          "windSpeed": 14,
-          "gusts": 21.2,
-          "pressure": 1015,
-          "humidity": 97,
-          "dewPoint": 11.38888888888889,
-          "cloudCover": 100,
-          "visibility": 10
-        },
-        {
-          "fog": false,
-          "time": 1684587600,
-          "temperature": 11.777777777777779,
-          "windSpeed": 11.5,
-          "gusts": 16.9,
-          "pressure": 1015,
+          "windSpeed": 17.6,
+          "gusts": 27.4,
+          "pressure": 1007,
           "humidity": 98,
-          "dewPoint": 11.38888888888889,
+          "dewPoint": 12.111111111111109,
           "cloudCover": 100,
-          "visibility": 9
+          "visibility": 10
+        },
+        {
+          "fog": false,
+          "time": 1684645200,
+          "temperature": 11.88888888888889,
+          "windSpeed": 17.6,
+          "gusts": 27.4,
+          "pressure": 1007,
+          "humidity": 98,
+          "dewPoint": 11.61111111111111,
+          "cloudCover": 100,
+          "visibility": 10
+        },
+        {
+          "fog": false,
+          "time": 1684648800,
+          "temperature": 11.222222222222223,
+          "windSpeed": 19.1,
+          "gusts": 31.3,
+          "pressure": 1007,
+          "humidity": 97,
+          "dewPoint": 10.722222222222221,
+          "cloudCover": 100,
+          "visibility": 7
+        },
+        {
+          "fog": false,
+          "time": 1684652400,
+          "temperature": 10.388888888888891,
+          "windSpeed": 17.6,
+          "gusts": 27,
+          "pressure": 1007,
+          "humidity": 97,
+          "dewPoint": 9.888888888888888,
+          "cloudCover": 100,
+          "visibility": 2
+        },
+        {
+          "fog": false,
+          "time": 1684656000,
+          "temperature": 9.777777777777779,
+          "windSpeed": 18.4,
+          "gusts": 28.1,
+          "pressure": 1007,
+          "humidity": 96,
+          "dewPoint": 9.222222222222221,
+          "cloudCover": 100,
+          "visibility": 10
+        },
+        {
+          "fog": false,
+          "time": 1684659600,
+          "temperature": 9.611111111111109,
+          "windSpeed": 19.8,
+          "gusts": 31,
+          "pressure": 1007,
+          "humidity": 97,
+          "dewPoint": 9.222222222222221,
+          "cloudCover": 100,
+          "visibility": 2
+        },
+        {
+          "fog": false,
+          "time": 1684663200,
+          "temperature": 11.11111111111111,
+          "windSpeed": 16.2,
+          "gusts": 27,
+          "pressure": 1006,
+          "humidity": 96,
+          "dewPoint": 10.5,
+          "cloudCover": 100,
+          "visibility": 10
+        },
+        {
+          "fog": false,
+          "time": 1684666800,
+          "temperature": 12.5,
+          "windSpeed": 26.3,
+          "gusts": 43.2,
+          "pressure": 1007,
+          "humidity": 90,
+          "dewPoint": 10.999999999999998,
+          "cloudCover": 88,
+          "visibility": 10
+        },
+        {
+          "fog": false,
+          "time": 1684670400,
+          "temperature": 12.777777777777779,
+          "windSpeed": 23.4,
+          "gusts": 33.8,
+          "pressure": 1009,
+          "humidity": 91,
+          "dewPoint": 11.277777777777777,
+          "cloudCover": 51,
+          "visibility": 5
+        },
+        {
+          "fog": false,
+          "time": 1684674000,
+          "temperature": 14.722222222222221,
+          "windSpeed": 21.6,
+          "gusts": 26.3,
+          "pressure": 1010,
+          "humidity": 80,
+          "dewPoint": 11.277777777777777,
+          "cloudCover": 17,
+          "visibility": 10
         }
       ],
-      "sunrise": "2023-05-20T05:28:00-04:00"
+      "sunrise": "2023-05-21T05:27:00-04:00"
     }
   ]
 }
